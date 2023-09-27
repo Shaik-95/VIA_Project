@@ -47,13 +47,13 @@ class BookingPage(SeleniumWrapper):
     def popup_(self):    
         self.click_on_element(popup_link)
 
-    def from_location(self):
+    def from_location(self, from_loc):
         self.enter_text(from_location_link)
 
     def click_from_location(self):
         self.click_on_element(select_from_location_link)
 
-    def to_location(self):
+    def to_location(self, to_loc):
         self.enter_text(to_location_link)
 
     def click_to_location(self):
@@ -91,13 +91,13 @@ class BookingPage(SeleniumWrapper):
             else:
                 raise NoSuchElementException("no match")
 
-    def enter_name(self):
+    def enter_name(self, name):
         self.enter_text(enter_name_link)
 
-    def enter_email(self):
+    def enter_email(self, email):
         self.enter_text(enter_email_link)
 
-    def enter_mobile(self):
+    def enter_mobile(self, mobile):
         self.enter_text(enter_mobile_link)
     
     def click_submit(self):

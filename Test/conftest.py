@@ -16,7 +16,6 @@ def driver_(request):
 		opts.add_experimental_option("detach", True)
 		driver = webdriver.Edge(options=opts)
 
-
 	driver.get(Config.URL)
 	driver.maximize_window()
 	yield driver

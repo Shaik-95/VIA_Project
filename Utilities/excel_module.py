@@ -1,6 +1,5 @@
 import xlrd
 
-
 def read_excel():
 	workbook = xlrd.open_workbook(r"C:\Users\shaik\PycharmProjects\Project_VIA\Excell_files\data1.xlsx")
 	worksheet = workbook.sheet_by_name("positive")

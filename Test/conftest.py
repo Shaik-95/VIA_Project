@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from Project_VIA.Utilities.config import Config
+from Utilities.config import Config
 
 @pytest.fixture(params=["chrome", "edge"])
 def driver_(request):

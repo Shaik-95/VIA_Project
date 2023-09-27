@@ -1,21 +1,9 @@
-# from Utilities.generic import SeleniumWrapper
-
-from Project_VIA.Utilities.generic import SeleniumWrapper
-
-
-from time import sleep
-from selenium import webdriver
+from selenium.common.exceptions import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
-from selenium.common.exceptions import *
 
-opts = webdriver.ChromeOptions()
-opts.add_experimental_option("detach", True)
-driver = webdriver.Chrome(options=opts)
-
-
-
-
+from selenium import webdriver
+from Utilities.generic import SeleniumWrapper
 
 
 
@@ -52,8 +40,8 @@ class BookingPage(SeleniumWrapper):
         self.click_on_element(book_a_cab_link)
 
     def switch_windows(self):
-        s = driver.window_handles
-        driver.switch_to.window(s[1])
+        s = self.driver.window_handles
+        self.driver.switch_to.window(s[1])
         self.window_handles(switch_to_window_link)
 
     def popup_(self):    
@@ -80,7 +68,6 @@ class BookingPage(SeleniumWrapper):
                 break
             except NoSuchElementException:
                 self.click_on_element(calender_sidearrow_link)
-                sleep(2)
                 continue
         try:
             self.click_on_element(calender_day_link)
@@ -88,7 +75,7 @@ class BookingPage(SeleniumWrapper):
             print("Invalid Date for the given month")
 
     def drop_down(self):
-        sel = driver.find_element(By.XPATH, "//select[@ng-model='selectedpickuptime']")
+        sel = self.driver.find_element(By.XPATH, "//select[@ng-model='selectedpickuptime']")
         time_ = '02:30 PM'
         select = Select(sel)
         select.select_by_visible_text(f'{time_}')
@@ -97,7 +84,7 @@ class BookingPage(SeleniumWrapper):
         self.click_on_element(on_search_link)    
 
     def click_on_booknow(self):
-        lists = driver.find_elements(By.XPATH, "//div[@class='rightSide']")
+        lists = self.driver.find_elements(By.XPATH, "//div[@class='rightSide']")
         for words in lists:
             if  cab_text in words.text:
                 self.click_on_element(on_bookcab_link)
@@ -115,4 +102,7 @@ class BookingPage(SeleniumWrapper):
     
     def click_submit(self):
         self.click_on_element(on_book_link)
+
+
+
 

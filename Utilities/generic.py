@@ -17,7 +17,7 @@ class SeleniumWrapper:
 	def enter_text(self, locator, *, value):
 		self.driver.find_element(*locator).send_keys(value)
 
-    @wait_   
+	@wait_   
 	def window_handles(self, locator):
 		self.driver.find_element(*locator).click()
 

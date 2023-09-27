@@ -6,7 +6,6 @@ from selenium import webdriver
 from Utilities.generic import SeleniumWrapper
 
 
-
 book_a_cab_link = (By.XPATH, "//a[text()='Book a Cab']")
 switch_to_window_link = (By.XPATH, "//a[text()='Book a Cab']")
 popup_link = (By.XPATH, "//button[text()='Later']")
@@ -26,12 +25,11 @@ on_search_link = (By.XPATH, "//button[text()='Search Cabs']")
 
 cab_name = 'AHA Economy'
 cab_text = 'AHA ECONOMY'
-on_bookcab_link = (By.XPATH, f"//h6[text()='{cab_name}']/../../following-sibling::div/child::div/child::button[text()='Book Now']")
+on_book_cab_link = (By.XPATH, f"//h6[text()='{cab_name}']/../../following-sibling::div/child::div/child::button[text()='Book Now']")
 enter_name_link = (By.XPATH, "//input[@id='name']")
 enter_email_link = (By.XPATH, "//input[@id='email-id']")
 enter_mobile_link = (By.XPATH, "//input[@id='mobile']")
 on_book_link = (By.XPATH, "//button[@type='submit']/child::small[text()='Inc. GST, Toll and Taxes']")
-
 
 
 class BookingPage(SeleniumWrapper):
@@ -87,7 +85,7 @@ class BookingPage(SeleniumWrapper):
         lists = self.driver.find_elements(By.XPATH, "//div[@class='rightSide']")
         for words in lists:
             if  cab_text in words.text:
-                self.click_on_element(on_bookcab_link)
+                self.click_on_element(on_book_cab_link)
             else:
                 raise NoSuchElementException("no match")
 

@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from Utilities.config import Config
 
+
 @pytest.fixture(params=["chrome", "edge"])
 def driver_(request):
 	browser = request.param
@@ -16,7 +17,7 @@ def driver_(request):
 		opts.add_experimental_option("detach", True)
 		driver = webdriver.Edge(options=opts)
 
-	driver.get(Config.URL)
+	driver.get("https://in.via.com/cab-bookings")
 	driver.maximize_window()
 	yield driver
 	driver.quit()

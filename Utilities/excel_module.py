@@ -10,6 +10,6 @@ def read_excel():
 	data = []
 	for row in rows:
 		# print(type(row[0]))
-		temp = (row[0].value, row[1].value)
+		temp = (row[0].value, row[1].value, row[2].value, row[3].value, row[4].value)
 		data.append(temp)
 	return data

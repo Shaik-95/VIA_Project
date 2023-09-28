@@ -42,7 +42,7 @@ class BookingPage(SeleniumWrapper):
         self.driver.switch_to.window(s[1])
         self.window_handles(switch_to_window_link)
 
-    def popup_(self):    
+    def popup_(self):
         self.click_on_element(popup_link)
 
     def from_location(self, from_loc):
